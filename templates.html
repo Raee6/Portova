@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Template | Portova</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/templates.js" defer></script>
+</head>
+
+<body class="template-page">
+
+    <header class="site-header">
+        <a href="index.html" class="logo">Portova<span>.</span></a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="create.html" class="active">Create Portfolio</a>
+            <a href="manage.html">Student Portfolios</a>
+        </nav>
+    </header>
+
+    <main class="template-container">
+
+        <h1>Choose your portfolio layout</h1>
+
+        <p class="subtitle">
+            Each template arranges your information differently, not just
+            the colors. You can switch at any time without retyping anything.
+        </p>
+
+        <section class="template-grid">
+
+            <article class="template-card">
+                <div class="preview-frame">
+                    <div class="template-preview simple-preview">
+                        <div class="sp-head"><div class="sp-av"></div><span class="sk sk-dark"></span><span class="sk sk-light"></span></div>
+                        <div class="sp-row"><b>About</b><span></span></div>
+                        <div class="sp-row"><b>Education</b><span></span></div>
+                        <div class="sp-row"><b>Projects</b><span></span></div>
+                    </div>
+                </div>
+                <div class="template-info">
+                    <span class="template-tag tag-simple">Resume layout</span>
+                    <h2>Simple</h2>
+                    <p>A single-column document with a label on the left and details on the right. Best for students and first jobs.</p>
+                    <button class="choose-btn simple-btn" type="button" data-template="simple">Choose Simple</button>
+                </div>
+            </article>
+
+            <article class="template-card">
+                <div class="preview-frame">
+                    <div class="template-preview modern-preview">
+                        <div class="mp-side"><div class="mp-av"></div><span class="sk sk-white"></span><span class="sk sk-dim"></span>
+                            <div class="mp-chips"><i></i><i></i><i></i><i></i></div></div>
+                        <div class="mp-main">
+                            <div class="mp-wide"></div>
+                            <div class="mp-tl"><i></i><i></i></div>
+                            <div class="mp-two"><i></i><i></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="template-info">
+                    <span class="template-tag tag-modern">Sidebar layout</span>
+                    <h2>Modern</h2>
+                    <p>A dark profile sidebar beside a story column with timelines for school and work, and project cards.</p>
+                    <button class="choose-btn modern-btn" type="button" data-template="modern">Choose Modern</button>
+                </div>
+            </article>
+
+            <article class="template-card">
+                <div class="preview-frame">
+                    <div class="template-preview creative-preview">
+                        <div class="cp-banner"><div class="cp-av"></div><span class="sk sk-white sk-big"></span></div>
+                        <div class="cp-grid"><i class="w2"></i><i></i><i></i><i class="w2"></i></div>
+                    </div>
+                </div>
+                <div class="template-info">
+                    <span class="template-tag tag-creative">Colour-block layout</span>
+                    <h2>Creative</h2>
+                    <p>A bold banner and a grid of colourful blocks. Best for designers, artists and makers.</p>
+                    <button class="choose-btn creative-btn" type="button" data-template="creative">Choose Creative</button>
+                </div>
+            </article>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

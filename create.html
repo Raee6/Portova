@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Portfolio | Portova</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/create.js" defer></script>
+</head>
+<body>
+    <header class="navbar">
+        <a href="index.html" class="logo">Portova<span>.</span></a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="create.html" class="active">Create Portfolio</a>
+            <a href="manage.html">Student Portfolios</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="builder-hero">
+            <div class="builder-hero-inner">
+                <p class="step-note" id="stepNote">Step 1 of 2: your details</p>
+                <h1 id="pageTitle">Create Your Portfolio</h1>
+                <p class="form-description">
+                    Fill in what you want to show. Only your name is required,
+                    and you will choose your template right after saving.
+                </p>
+            </div>
+        </section>
+
+        <form id="portfolioForm" class="builder">
+
+            <aside class="builder-side">
+                <div class="template-badge" id="templateBadge" hidden>
+                    <span>Layout <strong>Simple</strong></span>
+                    <a href="templates.html">Change</a>
+                </div>
+                <nav class="steps" aria-label="Form sections">
+                    <a href="#s-profile" class="on"><i>1</i>Profile</a>
+                    <a href="#s-about"><i>2</i>About &amp; skills</a>
+                    <a href="#s-education"><i>3</i>Education</a>
+                    <a href="#s-projects"><i>4</i>Projects</a>
+                    <a href="#s-experience"><i>5</i>Experience</a>
+                    <a href="#s-links"><i>6</i>Links</a>
+                </nav>
+            </aside>
+
+            <div class="builder-main">
+
+                <section class="card" id="s-profile">
+                    <header class="card-head">
+                        <span class="card-num">1</span>
+                        <div><h2>Profile</h2><p>The first thing people see.</p></div>
+                    </header>
+                    <div class="profile-grid">
+                        <div class="photo-upload">
+                            <div class="photo-preview" id="photoPreview" role="button" tabindex="0"
+                                 aria-label="Choose a profile picture">Drop a photo here</div>
+                            <div class="photo-actions">
+                                <input id="photo_file" type="file" accept="image/png,image/jpeg,image/webp" hidden>
+                                <label for="photo_file" class="secondary-button">Upload photo</label>
+                                <button type="button" class="danger-button" id="photoRemove" hidden>Remove</button>
+                            </div>
+                            <p class="hint" id="photoHint">JPG, PNG or WebP, up to 5 MB. Cropped to a square.</p>
+                            <input type="hidden" id="photo_url" name="photo_url">
+                        </div>
+
+                        <div class="fields">
+                            <div class="field">
+                                <label for="full_name">Full name *</label>
+                                <input id="full_name" name="full_name" type="text" required maxlength="150" placeholder="Your full name">
+                            </div>
+                            <div class="two">
+                                <div class="field">
+                                    <label for="email">Email</label>
+                                    <input id="email" name="email" type="email" placeholder="you@example.com">
+                                </div>
+                                <div class="field">
+                                    <label for="phone">Contact number</label>
+                                    <input id="phone" name="phone" type="tel" placeholder="+63 900 000 0000">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="address">Address</label>
+                                <input id="address" name="address" type="text" placeholder="City, Province">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="card" id="s-about">
+                    <header class="card-head">
+                        <span class="card-num">2</span>
+                        <div><h2>About &amp; skills</h2><p>Say who you are in a few lines.</p></div>
+                    </header>
+                    <div class="field">
+                        <label for="about">About me</label>
+                        <textarea id="about" name="about" rows="5" placeholder="Tell us about yourself..."></textarea>
+                        <div class="counter" id="aboutCounter">0 / 600</div>
+                    </div>
+                    <div class="field">
+                        <label for="skills">Skills <span class="label-note">separate with commas</span></label>
+                        <input id="skills" name="skills" type="text" placeholder="HTML, CSS, JavaScript, teamwork">
+                        <div class="chip-preview" id="skillChips" aria-hidden="true"></div>
+                    </div>
+                </section>
+
+                <section class="card" id="s-education">
+                    <header class="card-head">
+                        <span class="card-num">3</span>
+                        <div><h2>Education</h2><p>Schools, courses and certificates.</p></div>
+                    </header>
+                    <div class="rows" id="g-education"></div>
+                    <button type="button" class="secondary-button add-row" data-add="education">+ Add another school</button>
+                </section>
+
+                <section class="card" id="s-projects">
+                    <header class="card-head">
+                        <span class="card-num">4</span>
+                        <div><h2>Projects</h2><p>Show what you have built.</p></div>
+                    </header>
+                    <div class="rows" id="g-projects"></div>
+                    <button type="button" class="secondary-button add-row" data-add="projects">+ Add another project</button>
+                </section>
+
+                <section class="card" id="s-experience">
+                    <header class="card-head">
+                        <span class="card-num">5</span>
+                        <div><h2>Work experience</h2><p>Jobs, internships and volunteering.</p></div>
+                    </header>
+                    <div class="rows" id="g-experience"></div>
+                    <button type="button" class="secondary-button add-row" data-add="experience">+ Add another job</button>
+                </section>
+
+                <section class="card" id="s-links">
+                    <header class="card-head">
+                        <span class="card-num">6</span>
+                        <div><h2>Social media &amp; websites</h2><p>Where people can find you online.</p></div>
+                    </header>
+                    <div class="rows" id="g-links"></div>
+                    <button type="button" class="secondary-button add-row" data-add="links">+ Add another link</button>
+                </section>
+            </div>
+
+            <div class="form-actions">
+                <p id="formMessage" role="status" aria-live="polite"></p>
+                <a href="manage.html" class="secondary-button">Cancel</a>
+                <button type="submit" class="primary-button" id="saveButton">Save and choose template</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

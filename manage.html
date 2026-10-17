@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portfolios | Portova</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+    <script src="js/supabase.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <a href="index.html" class="logo">Portova<span>.</span></a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="create.html">Create Portfolio</a>
+            <a href="manage.html" class="active">Student Portfolios</a>
+        </nav>
+    </header>
+
+    <section class="heading">
+        <h2>Student Portfolios</h2>
+        <p id="headingText">Every portfolio saved in the database. You can edit or delete the ones you created.</p>
+    </section>
+
+    <div class="manage-tools">
+        <div id="modeBanner" class="mode-banner" hidden></div>
+        <div class="manage-bar">
+            <input id="search" type="search" placeholder="Search by name, email or skill" aria-label="Search portfolios">
+            <a href="create.html" class="primary-button">Add student portfolio</a>
+        </div>
+    </div>
+
+    <p id="message" role="status">Loading...</p>
+
+    <main id="portfolioList"></main>
+
+    <script src="js/manage.js"></script>
+</body>
+</html>

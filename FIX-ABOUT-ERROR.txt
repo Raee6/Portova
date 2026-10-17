@@ -1,0 +1,11 @@
+FIX FOR: Could not find the 'about' column of 'portfolios' in the schema cache
+
+1. Go to supabase.com -> your project -> SQL Editor -> New query.
+2. Open supabase-setup.sql from this folder, copy ALL of it, paste, click Run.
+   (Your old table is kept as portfolios_old, nothing is deleted.)
+3. Table Editor -> portfolios should now show the "about" column.
+4. If the error stays, run this alone, wait 30 seconds:
+       notify pgrst, 'reload schema';
+5. In VS Code Live Server, hard refresh (Ctrl+F5) and save again.
+
+Make sure SUPABASE_URL in js/supabase.js is the same project where you ran the SQL.

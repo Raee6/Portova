@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Preview | Portova</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+    <script src="js/supabase.js"></script>
+</head>
+<body class="portfolio-page simple">
+    <div class="topbar">
+        <div class="group">
+            <a href="manage.html">← Student portfolios</a>
+            <a id="editLink" href="create.html" hidden>Edit details</a>
+        </div>
+        <div class="group" role="group" aria-label="Template">
+            <button type="button" class="switch" data-template="simple">Simple</button>
+            <button type="button" class="switch" data-template="modern">Modern</button>
+            <button type="button" class="switch" data-template="creative">Creative</button>
+        </div>
+        <div class="group"></div>
+    </div>
+
+    <p id="statusMessage">Loading portfolio...</p>
+
+    <main id="portfolioContent" hidden>
+        <div class="layout">
+
+            <aside class="col-side">
+                <header class="hero-card" id="sec-hero">
+                    <img id="profilePicture" alt="Profile picture" hidden>
+                    <div id="initialAvatar" class="initial-avatar" hidden></div>
+                    <div>
+                        <h1 id="fullName"></h1>
+                        <div class="contact">
+                            <p id="email"></p>
+                            <p id="contactNumber"></p>
+                            <p id="address"></p>
+                        </div>
+                        <a id="contactBtn" class="contact-btn" href="#" hidden>Contact me</a>
+                    </div>
+                </header>
+
+                <section class="section" id="sec-skills"><h2>Skills</h2><ul id="skills"></ul></section>
+                <section class="section" id="sec-links"><h2>Links</h2><ul id="socialLinks"></ul></section>
+            </aside>
+
+            <div class="col-main">
+                <section class="section" id="sec-about"><h2>About me</h2><p id="aboutMe"></p></section>
+                <section class="section" id="sec-education"><h2>Education</h2><ul id="education"></ul></section>
+                <section class="section" id="sec-work"><h2>Work experience</h2><ul id="workExperience"></ul></section>
+                <section class="section" id="sec-projects"><h2>Projects</h2><ul id="projects"></ul></section>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="js/preview.js"></script>
+</body>
+</html>
