@@ -8,6 +8,27 @@
 Users can choose from three portfolio templates: Simple, Modern, and Creative. Their portfolios can be saved to an online database using Supabase, allowing them to remain available even after refreshing the page. All student portfolios are displayed on the Student Portfolios page.
 
 Portova also supports local mode, allowing users to create and view portfolios in their browser while the online database is being configured.
+## Tables
+## Database Structure
+
+Table: `portfolios`
+
+| Column       | Type               | Description                                                                      |
+| ------------ | ------------------ | -------------------------------------------------------------------------------- |
+| `id`         | uuid (primary key) | Unique portfolio ID, generated automatically                                     |
+| `created_at` | timestamptz        | Date and time the portfolio was created                                          |
+| `full_name`  | text (required)    | Student's full name                                                              |
+| `email`      | text               | Student's email address                                                          |
+| `phone`      | text               | Student's contact number                                                         |
+| `address`    | text               | Student's address                                                                |
+| `about`      | text               | Student's personal introduction or About Me section                              |
+| `photo_url`  | text               | Profile picture, resized and stored as an image data URL                         |
+| `skills`     | jsonb              | List of student skills, such as HTML and CSS                                     |
+| `education`  | jsonb              | List of educational background details, including school, degree, and years      |
+| `projects`   | jsonb              | List of projects, including title, description, and link                         |
+| `experience` | jsonb              | List of work experience details, including role, company, years, and description |
+| `links`      | jsonb              | List of social media profiles and website links, including labels and URLs       |
+| `template`   | text               | Selected portfolio template: `simple`, `modern`, or `creative`                   |
 
 ### 2. Features and Functionalities
 
